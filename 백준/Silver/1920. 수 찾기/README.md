@@ -1,5 +1,7 @@
 # [Silver IV] 수 찾기 - 1920 
 
+## set로 만들자마자 됨, 의도는 다른거 같음
+
 [문제 링크](https://www.acmicpc.net/problem/1920) 
 
 ### 성능 요약
