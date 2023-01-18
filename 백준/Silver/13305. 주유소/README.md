@@ -1,4 +1,6 @@
 # [Silver III] 주유소 - 13305 
+## 시간이 중요함
+### 처음에는 slicing으로 푸려고 했으나 slicing은 O(N) 시간 복잡도여서 100000만 개의 케이스는 너무 오래걸림, 그래서 for문으로 변경
 
 [문제 링크](https://www.acmicpc.net/problem/13305) 
 
