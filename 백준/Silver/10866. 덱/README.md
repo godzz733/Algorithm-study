@@ -1,5 +1,6 @@
 # [Silver IV] 덱 - 10866 
 
+## sys 적극적 사용
 [문제 링크](https://www.acmicpc.net/problem/10866) 
 
 ### 성능 요약
