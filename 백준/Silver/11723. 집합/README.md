@@ -1,4 +1,5 @@
 # [Silver V] 집합 - 11723 
+##pypy3 로하면 메모리 초과
 
 [문제 링크](https://www.acmicpc.net/problem/11723) 
 
