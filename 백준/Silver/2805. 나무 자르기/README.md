@@ -1,5 +1,6 @@
 # [Silver II] 나무 자르기 - 2805 
-
+## 이진탐색
+별다른 엣지케이스는 없었음.
 [문제 링크](https://www.acmicpc.net/problem/2805) 
 
 ### 성능 요약
