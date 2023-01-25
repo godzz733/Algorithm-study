@@ -1,4 +1,5 @@
 # [Silver II] 베르트랑 공준 - 4948 
+## 에라토스테네스의 체
 
 [문제 링크](https://www.acmicpc.net/problem/4948) 
 
