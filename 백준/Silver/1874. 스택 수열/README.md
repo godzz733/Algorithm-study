@@ -1,4 +1,6 @@
-# [Silver II] 스택 수열 - 1874 
+# [Silver II] 스택 수열 - 1874
+## 아이디어
+입력값의 맨 첫번째 값이 첫번째로 pop된 값임, 즉 거기까지 일단 stack에 append를 하고 값과 같아졋다면 pop하면 됨 -> 이걸 반복
 
 [문제 링크](https://www.acmicpc.net/problem/1874) 
 
