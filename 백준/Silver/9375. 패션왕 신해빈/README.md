@@ -1,5 +1,6 @@
 # [Silver III] 패션왕 신해빈 - 9375 
-
+## 집합론
+https://mathbang.net/201 이거와 같은 개념임
 [문제 링크](https://www.acmicpc.net/problem/9375) 
 
 ### 성능 요약
