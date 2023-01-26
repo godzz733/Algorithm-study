@@ -1,4 +1,5 @@
 # [Silver III] 수열 - 2559 
+## 투포인터 문제고 노션에 기록해놓음
 
 [문제 링크](https://www.acmicpc.net/problem/2559) 
 
