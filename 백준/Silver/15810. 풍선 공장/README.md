@@ -1,4 +1,5 @@
 # [Silver II] 풍선 공장 - 15810 
+## 이진 탐색이고, 다른 문제와 다르게 최소값을 구하는 것임을 유의
 
 [문제 링크](https://www.acmicpc.net/problem/15810) 
 
