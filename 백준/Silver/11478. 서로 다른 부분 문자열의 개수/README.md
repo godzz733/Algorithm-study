@@ -1,4 +1,5 @@
-# [Silver III] 서로 다른 부분 문자열의 개수 - 11478 
+# [Silver III] 서로 다른 부분 문자열의 개수 - 11478
+## 문자열의 모든 경우의 수 만드는 알고리즘을 만듬
 
 [문제 링크](https://www.acmicpc.net/problem/11478) 
 
