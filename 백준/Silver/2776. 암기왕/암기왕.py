@@ -11,7 +11,7 @@ for _ in range(t):
     arr1 = [*map(int,input().split())]
     for i in arr1:
         if i in dic:
-            print(1)
+            sys.stdout.write(str(1) + "\n")
         else:
-            print(0)
+            sys.stdout.write(str(0) + "\n")
     
