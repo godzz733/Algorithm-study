@@ -8,7 +8,7 @@ arr = [[] for _ in range(n+1)]
 for _ in range(t):
     a,b = map(int, input().split())
     arr[a].append(b)
-    arr[b].append(a)
+    arr[b].append(a) #항상 반대 방향도 고려
 
 def dfs(arr,start,distance,visited):
     visited[start] =True
