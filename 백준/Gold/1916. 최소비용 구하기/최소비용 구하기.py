@@ -12,7 +12,7 @@ for _ in range(m):
 x,y = map(int,input().split())
 start = x
 end = y
-def current_node():
+def current_node(): #현재 노드 불러옴
     _min = int(1e9)
     index = 0
     for i in range(1,n+1):
@@ -24,7 +24,7 @@ def dik(start):
     distance[start] = 0
     visited[start] = True
     for i in arr[start]: #한 도시에서 다른 도시로 갈 떄 버스가 한개인가?
-        if distance[i[0]] > i[1]:
+        if distance[i[0]] > i[1]: # 중복되는 버스가 있기 때문에 그 버스가 거리가 더 작을때만 거리 입력
             distance[i[0]] = i[1]
     for i in range(n-1):
         now = current_node()
