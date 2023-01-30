@@ -1,5 +1,5 @@
 # [Gold V] 적록색약 - 10026 
-
+## dfs로 풀면 됨, 음료문제, 미로찾기와 비슷함
 [문제 링크](https://www.acmicpc.net/problem/10026) 
 
 ### 성능 요약
