@@ -1,5 +1,5 @@
 # [Silver I] 인간-컴퓨터 상호작용 - 16139 
-
+## 딕셔너리를 이용해 풀이
 [문제 링크](https://www.acmicpc.net/problem/16139) 
 
 ### 성능 요약
