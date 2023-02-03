@@ -42,6 +42,6 @@ for i in arr:
         if i[j] == 0:
             key = 1
 if key == 0:
-    print(cnt-1)
+    print(cnt-1) # 토마토가 다 익은뒤에도 마지막으로 한번 더 연산하므로 1을 빼줌
 else:
     print(-1)
