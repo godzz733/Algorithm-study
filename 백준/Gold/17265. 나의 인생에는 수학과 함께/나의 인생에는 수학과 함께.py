@@ -17,14 +17,14 @@ def dfs(x, y):
         visited[x][y] = True
         dfs(x + 1, y)
         dfs(x, y + 1)
-        visited[x][y] = False
+        visited[x][y] = False #만약 도착 했다면 방문기록을 없애줌
         result.append(li[:])
-        li.pop()
+        li.pop() # 경로도 수정
         return True
     return False
 
 dfs(0,0)
-for i in result:
+for i in result: #여기는 그냥 계산때문에 있는거라 신경 안써도 됨
     a = 0
     if len(i) == (n * 2 - 1):
         a = int(i[0])
