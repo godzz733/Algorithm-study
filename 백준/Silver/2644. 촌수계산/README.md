@@ -1,4 +1,5 @@
 # [Silver II] 촌수계산 - 2644 
+## 값을 찾앗을때 멈추는 조건 넣기
 
 [문제 링크](https://www.acmicpc.net/problem/2644) 
 
