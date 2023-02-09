@@ -1,4 +1,5 @@
 # [Silver II] N과 M (9) - 15663 
+## ㅁㅁ in 쓸떄 리스트를 쓰는거보다 set를 쓰는게 훨씬 빠름
 
 [문제 링크](https://www.acmicpc.net/problem/15663) 
 
