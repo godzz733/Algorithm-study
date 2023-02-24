@@ -25,7 +25,7 @@ while lst:
                 if x-1 not in visited and x-1>=0:
                     lst.add(x-1)
                     if not result[x-1]:
-                        result[x-1] = x
+                        result[x-1] = x # 만약 여기를 처음 도착하면 어디서 부터 왓는지 기록함
                 if x+1 not in visited and x+1 <= 100000:
                     lst.add(x+1)
                     if not result[x+1]:
@@ -35,19 +35,17 @@ while lst:
                     lst.add(x*2)
                     if not result[x*2]:
                         result[x*2] = x
-
-
     if key:
         break
 print(cnt-1)
-if n==m:
+if n==m: # 출발, 도착이 같으면 도착지만 출력
     print(n)
 else:
     a = -1
     ans = []
     ans.append(m)
     while a != n:
-        a = result[m]
+        a = result[m] # 재귀적으로 도착지가 어디서 왓는지를 역추적해서 출발지에 도달할때까지 함
         m = a
         ans.append(a)
     print(*ans[::-1])
