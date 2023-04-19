@@ -8,20 +8,22 @@ public class Main{
 	static int a;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuffer sb = new StringBuffer();
 		int n = Integer.parseInt(br.readLine());
 		PriorityQueue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());
 		for (int i=0; i<n; i++) {
 			a = Integer.parseInt(br.readLine());
 			if (a == 0) {
 				if (q.isEmpty()) {
-					System.out.println("0");
+					sb.append("0").append('\n');
 				} else {
-					System.out.println(q.poll());
+					sb.append(q.poll()).append('\n');
 				}
 			} else {
 				q.add(a);
 			}
 		}
+		System.out.println(sb);
 	}
 
 }
