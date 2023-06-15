@@ -25,7 +25,7 @@ def solution(queue1, queue2):
             a -= tem
             arr2.append(tem)
             cnt += 1
-        if cnt > len(queue1) + len(queue2) + 100000 or not len(arr1) or not len(arr2):
+        if cnt > len(queue1) + len(queue2) + 10 or not len(arr1) or not len(arr2):
             cnt = -1
             break
     answer = cnt
