@@ -1,16 +1,14 @@
 # [Silver IV] 수 찾기 - 1920 
 
-## set로 만들자마자 됨, 의도는 다른거 같음
-
 [문제 링크](https://www.acmicpc.net/problem/1920) 
 
 ### 성능 요약
 
-메모리: 154920 KB, 시간: 3904 ms
+메모리: 145328 KB, 시간: 248 ms
 
 ### 분류
 
-이분 탐색(binary_search), 자료 구조(data_structures), 정렬(sorting)
+자료 구조, 정렬, 이분 탐색
 
 ### 문제 설명
 

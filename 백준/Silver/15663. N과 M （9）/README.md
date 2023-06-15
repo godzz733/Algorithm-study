@@ -1,15 +1,14 @@
 # [Silver II] N과 M (9) - 15663 
-## ㅁㅁ in 쓸떄 리스트를 쓰는거보다 set를 쓰는게 훨씬 빠름
 
 [문제 링크](https://www.acmicpc.net/problem/15663) 
 
 ### 성능 요약
 
-메모리: 123632 KB, 시간: 232 ms
+메모리: 68516 KB, 시간: 344 ms
 
 ### 분류
 
-백트래킹(backtracking)
+백트래킹
 
 ### 문제 설명
 

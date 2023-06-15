@@ -1,15 +1,14 @@
 # [Silver V] 집합 - 11723 
-##pypy3 로하면 메모리 초과
 
 [문제 링크](https://www.acmicpc.net/problem/11723) 
 
 ### 성능 요약
 
-메모리: 30616 KB, 시간: 4888 ms
+메모리: 348728 KB, 시간: 3532 ms
 
 ### 분류
 
-비트마스킹(bitmask), 구현(implementation)
+구현, 비트마스킹
 
 ### 문제 설명
 

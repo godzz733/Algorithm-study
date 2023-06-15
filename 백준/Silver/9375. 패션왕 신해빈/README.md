@@ -1,15 +1,14 @@
 # [Silver III] 패션왕 신해빈 - 9375 
-## 집합론
-https://mathbang.net/201 이거와 같은 개념임
+
 [문제 링크](https://www.acmicpc.net/problem/9375) 
 
 ### 성능 요약
 
-메모리: 113112 KB, 시간: 124 ms
+메모리: 13968 KB, 시간: 148 ms
 
 ### 분류
 
-조합론(combinatorics), 자료 구조(data_structures), 해시를 사용한 집합과 맵(hash_set), 수학(math)
+수학, 자료 구조, 조합론, 해시를 사용한 집합과 맵
 
 ### 문제 설명
 

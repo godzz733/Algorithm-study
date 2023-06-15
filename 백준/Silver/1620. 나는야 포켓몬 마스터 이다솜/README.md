@@ -4,11 +4,11 @@
 
 ### 성능 요약
 
-메모리: 145428 KB, 시간: 376 ms
+메모리: 117344 KB, 시간: 1192 ms
 
 ### 분류
 
-자료 구조(data_structures), 해시를 사용한 집합과 맵(hash_set)
+자료 구조, 해시를 사용한 집합과 맵
 
 ### 문제 설명
 
@@ -62,11 +62,11 @@
 
 <p>이다솜 : 그럼 꼬렛을 다시 잡으러 가야겠다. 영식아, 그리고 민식박사님 빠잉!</p>
 
-<p><img alt="" src="https://www.acmicpc.net/upload/201004/p5.PNG" style="height:179px; width:274px"></p>
+<p><img alt="" src="" style="height:179px; width:274px"></p>
 
 <p>이다솜 : 피카츄 공격!</p>
 
-<p><img alt="" src="" style="height:182px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/p6.PNG" style="height:182px; width:274px"></p>
 
 <p>가라 몬스터 볼!</p>
 

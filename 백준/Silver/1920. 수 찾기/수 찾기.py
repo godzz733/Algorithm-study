@@ -1,14 +1,12 @@
-import sys
-a=1
-t1 = int(input())
-arr1 = list(set([*map(int,sys.stdin.readline().split())]))
-arr1.sort()
-t2 = int(input())
-arr2 = [*map(int,sys.stdin.readline().split())]
-
-for i in arr2:
-    if i in arr1:
+n = int(input())
+lst = set()
+a = [*map(str,input().split())]
+for i in a:
+    lst.add(i)
+m = int(input())
+b = [*map(str,input().split())]
+for i in b:
+    if i in lst:
         print(1)
-        continue
     else:
         print(0)
