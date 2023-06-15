@@ -6,10 +6,10 @@ def solution(alp, cop, problems):
     needa = 0
     needb = 0
     for i in problems:
-        # for j in arr:
-        #     if i[2] == j[2] and i[3] == j[3] and i[4] <= j[4]:
-        #         arr[j] = i
-        #         break
+        for j in arr:
+            if i[2] == j[2] and i[3] == j[3] and i[4] <= j[4]:
+                j = i
+                break
         if i[2] == 0 and i[3] == 0:
             continue
         arr.append(i)
