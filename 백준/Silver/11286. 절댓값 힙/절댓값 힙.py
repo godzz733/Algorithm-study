@@ -1,15 +1,6 @@
-import sys
-import heapq as hep
-input = sys.stdin.readline
-n = int(input())
+import heapq as heq, sys
 arr = []
-
-for _ in range(n):
-    a = int(input())
-    if a!=0:
-        hep.heappush(arr,(abs(a),a))
-    else:
-        if arr==[]:
-            print(0)
-        else:
-            print(hep.heappop(arr)[1])
+for _ in range(int(input())):
+    x = int(sys.stdin.readline())
+    if not x: print(heq.heappop(arr)[1]) if arr else print(0)
+    else: heq.heappush(arr, (abs(x), x))
