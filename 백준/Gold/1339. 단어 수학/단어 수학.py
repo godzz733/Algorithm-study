@@ -1,6 +1,8 @@
+import sys
+input = sys.stdin.readline
 arr, map = [],{}
 for _ in range(int(input())):
-    tem = input()
+    tem = input().rstrip()
     for j in range(len(tem)):
         if tem[j] not in map: map[tem[j]] = 0
         map[tem[j]] += 10**(len(tem)-j-1)
