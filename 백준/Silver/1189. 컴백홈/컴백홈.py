@@ -1,12 +1,11 @@
 from collections import deque
 n,m,k = map(int,input().split())
 arr = [list(input()) for _ in range(n)]
-ans = [[[0] * m for _ in range(n)] for _ in range(k)]
+ans = 0
 q = deque()
 tem = set()
 tem.add((n-1,0))
 q.append((n-1,0,0,tem.copy()))
-ans[0][0][0] = 1
 dx = [0,0,1,-1]
 dy = [1,-1,0,0]
 def inRange(x,y):
@@ -19,9 +18,9 @@ while q:
         tem = _set.copy()
         nx = x + dx[i]
         ny = y + dy[i]
-        if not inRange(nx,ny) or (nx,ny) in tem or cnt == k-1: continue
+        if not inRange(nx,ny) or (nx,ny) in tem: continue
+        if cnt == k-2 and nx == 0 and ny == m-1: ans += 1
         tem.add((nx,ny))
-        ans[cnt+1][nx][ny] += 1
         q.append((nx,ny,cnt+1,tem))
 
-print(ans[k-1][0][m-1])
+print(ans)
