@@ -7,7 +7,6 @@ for _ in range(m):
     parent[b].append(a)
 visited = [0]*n
 def back(cnt,x):
-    global ans
     if cnt==5:
         print(1)
         sys.exit()
