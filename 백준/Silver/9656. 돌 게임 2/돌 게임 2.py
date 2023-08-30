@@ -1,0 +1,1 @@
+print('SK') if not int(input())%2 else print("CY")
