@@ -20,4 +20,5 @@ for i in range(n):
     visited[i] = 1
     back(1,i)
     visited[i] = 0
+    if ans: break
 print(ans)
