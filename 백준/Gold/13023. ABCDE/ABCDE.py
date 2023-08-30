@@ -1,3 +1,4 @@
+import sys
 n,m = map(int,input().split())
 parent = [[] for _ in range(n)]
 for _ in range(m):
@@ -5,12 +6,11 @@ for _ in range(m):
     parent[a].append(b)
     parent[b].append(a)
 visited = [0]*n
-ans = 0
 def back(cnt,x):
     global ans
     if cnt==5:
-        ans = 1
-        return
+        print(1)
+        sys.exit()
     for i in parent[x]:
         if not visited[i]:
             visited[i] = 1
@@ -20,5 +20,4 @@ for i in range(n):
     visited[i] = 1
     back(1,i)
     visited[i] = 0
-    if ans: break
-print(ans)
+print(0)
