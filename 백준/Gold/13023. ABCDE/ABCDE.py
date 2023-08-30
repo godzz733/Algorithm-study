@@ -6,6 +6,8 @@ for _ in range(m):
     parent[a].append(b)
     parent[b].append(a)
 visited = [0]*n
+for i in parent:
+    i.sort()
 def back(cnt,x):
     if cnt==5:
         print(1)
