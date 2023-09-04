@@ -7,9 +7,7 @@ visited = [[False]*m for _ in range(n)]
 for i in range(n):
     for j in range(m):
         if arr[i][j] == '.': arr[i][j] = 0
-        elif arr[i][j] == '#': 
-            arr[i][j] = -1
-            visited[i][j] = True
+        elif arr[i][j] == '#': visited[i][j] = True
         elif arr[i][j] == 'v':arr[i][j] = 1
         elif arr[i][j] == 'o':arr[i][j] = 2
 
