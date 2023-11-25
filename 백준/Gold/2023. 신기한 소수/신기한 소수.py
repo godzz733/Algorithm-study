@@ -17,7 +17,7 @@ for i in [2,3,5,7]:
         t = tem*10
         for k in range(n-1):
             t //= 10
-            for q in range(2,math.ceil(math.sqrt(t)+1)):
+            for q in range(3,math.ceil(math.sqrt(t)+1)):
                 if t % q == 0:
                     key = 0
                     break
