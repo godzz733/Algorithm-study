@@ -9,7 +9,6 @@ for _ in range(n):
         if not tem: tem.append(i)
         elif tem[-1] == i: tem.pop()
         else: tem.append(i)
-    tem = ''.join(tem)
-    if 'ABA' in tem or 'BAB' in tem: continue
-    ans += 1
+    if not tem:
+        ans += 1
 print(ans)
