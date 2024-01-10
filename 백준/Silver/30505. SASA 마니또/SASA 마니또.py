@@ -11,8 +11,8 @@ c = int(I())
 if not arr[c]:
     print('NOJAM')
     exit()
-ans = sum(arr2) - arr2[c]
-if ans == 2 and sum(arr) == 2:
+ans = n - m - arr2[c]
+if ans == 2 and n-m == 2:
     for i in range(1,n+1):
         if arr[i] and arr2[i]:
             ans = 1
