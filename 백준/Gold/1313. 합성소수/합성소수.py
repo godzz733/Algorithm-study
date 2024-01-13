@@ -4,9 +4,6 @@ prime = [False, False] + [True] * 31374
 ans = []
 def find_ans(x):
     t = str(x)
-    tt = t[1:]
-    if '2' in tt or '4' in tt or '6' in tt or '8' in tt or '0' in tt or '5' in tt:
-        return False
     for i in range(2,len(t)):
         for j in range(len(t) - i + 1):
             if not prime[int(t[j:j+i])]:
