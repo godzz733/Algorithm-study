@@ -1,16 +1,12 @@
 a = list(input())
 dic = {a[i]:i+1 for i in range(len(a))}
 b = list(input())
+size = len(b)
 arr = [0,len(a)]
-def mod(x):
-    return x%900528
-for i in range(len(b)-1):
-    arr.append(mod(arr[-1]*len(a)))
-ans = 0
-for i in range(1,len(b)):
-    ans += arr[i]
-    ans = mod(ans)
-for j in range(len(b)-1):
-    ans += arr[len(b)-j-1]*(dic[b[j]]-1)
-    ans = mod(ans)
+for i in range(size-1):
+    arr.append((arr[-1]*len(a))%900528)
+ans = sum(arr[:-1])%900528
+for j in range(size-1):
+    ans += arr[size-j-1]*(dic[b[j]]-1)
+    ans = ans%900528
 print((ans+dic[b[-1]])%900528)
