@@ -1,7 +1,5 @@
-import sys; input = sys.stdin.readline
-from collections import deque
 n = int(input())
-arr = [input().rstrip() for _ in range(n)]
+arr = [input() for _ in range(n)]
 ans = ''
 st = 0
 fi = n-1
