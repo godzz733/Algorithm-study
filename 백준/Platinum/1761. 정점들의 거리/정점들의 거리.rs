@@ -28,7 +28,7 @@ fn dfs(x: usize, mut cnt:usize, v: &mut [usize], arr:&[Vec<(usize,usize)>], pare
 
 fn set_parent(v: &mut [usize], arr:&[Vec<(usize,usize)>], parent: &mut Vec<Vec<[usize; 2]>>, d: &mut [usize], n: usize) {
     dfs(1, 0, v, arr, parent, d);
-    for i in 1..21 {
+    for i in 1..16 {
         for j in 1..n+1 {
             parent[j][i][0] = parent[parent[j][i-1][0]][i-1][0];
         }
@@ -41,7 +41,7 @@ fn lca(mut a: usize,mut b: usize,parent: &mut Vec<Vec<[usize; 2]>>, d: &mut [usi
     }
     let tem_a = a;
     let tem_b = b;
-    for i in (0..21).rev() {
+    for i in (0..16).rev() {
         if d[b] - d[a] >= (1 << i) {
             b = parent[b][i][0];
         }
@@ -49,13 +49,12 @@ fn lca(mut a: usize,mut b: usize,parent: &mut Vec<Vec<[usize; 2]>>, d: &mut [usi
     if a == b {
         return parent[tem_b][0][1] - parent[tem_a][0][1];
     }
-    for i in (0..21).rev() {
+    for i in (0..16).rev() {
         if parent[a][i][0] != parent[b][i][0] {
             a = parent[a][i][0];
             b = parent[b][i][0];
         }
     }
-    // println!("{} {} {} ", parent[a][0][0], parent[tem_a][0][1], parent[tem_b][0][1]);
     parent[tem_b][0][1] + parent[tem_a][0][1] - 2 * parent[parent[a][0][0]][0][1]
 }
 
@@ -79,7 +78,7 @@ fn main() {
     
     let mut v: Vec<usize> = vec![0; n+1];
     let mut parent: Vec<Vec<[usize; 2]>> = Vec::new();
-    parent.extend((0..n+1).map(|_| vec![[0,0];21]));
+    parent.extend((0..n+1).map(|_| vec![[0,0];16]));
     let mut d = vec![0; n+1];
 
     set_parent(&mut v, &mut arr, &mut parent, &mut d, n);
