@@ -9,9 +9,8 @@ if sum(arr) > m:
 ans = 1
 mod = int(1e9) + 7
 for i in arr:
-    for j in range(i):
+    for j in range(i,0,-1):
         ans *= m
-        ans %= mod
         m -= 1
     for j in range(i,0,-1):
         ans //= j
