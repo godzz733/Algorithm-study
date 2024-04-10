@@ -6,14 +6,15 @@ for i in range(n):
 if sum(arr) > m:
     print(0)
     exit()
-ans = 1
 mod = int(1e9) + 7
+nums = [1]
+for i in range(1,m+1):
+    nums.append(nums[-1] * i % mod)
+ans = nums[m]
+tem = 1
 for i in arr:
-    for j in range(i,0,-1):
-        ans *= m
-        m -= 1
-    for j in range(i,0,-1):
-        ans //= j
-    ans %= mod
-
-print(ans % mod)
+    tem *= nums[i]
+    tem %= mod
+tem *= nums[m - sum(arr)]
+tem %= mod
+print(ans * pow(tem, -1, mod) % mod)
