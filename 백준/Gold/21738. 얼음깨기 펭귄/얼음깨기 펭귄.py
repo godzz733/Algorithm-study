@@ -15,11 +15,13 @@ ans = []
 def solve(num,cnt):
     if num <= m:
         ans.append(cnt)
+        if len(ans) == m:
+            ans.sort()
+            print(n-ans[0]-ans[1]-1)
+            exit()
     dp[num] = 1
     for i in arr[num]:
         if dp[i] == 0:
             solve(i,cnt+1)
 
 solve(k,0)
-ans.sort()
-print(n-ans[0]-ans[1]-1)
