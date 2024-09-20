@@ -1,70 +1,53 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
+public class Main {
+    static BufferedReader br;
+    static StringTokenizer st;
+    static StringBuilder sb;
+    static int [] p;
+    public static void main(String[] args) throws IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int ans = 0;
+        ArrayList<int []> arr = new ArrayList<>();
+        for (int i=0; i<m; i++) {
+            st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
+            arr.add(new int [] {a-1,b-1,c});
+        }
+        Collections.sort(arr,new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[2] - o2[2];
+            }
+        });
 
-public class Main{
-	
-	static int v,e;
-	static int [] parent;
-	
-	static int find_parent(int x) {
-		if (parent[x] != x) {
-			parent[x] = find_parent(parent[x]);
-		}
-		return parent[x];
-	}
-	static void union_parent(int a, int b) {
-		a = find_parent(a);
-		b = find_parent(b);
-		if (a<b) {
-			parent[b] = a;
-		} else {
-			parent[a] = b;
-		}
-	}
-	static class pos{
-		int a,b,c;
-		public pos(int a, int b, int c) {
-			this.a = a;
-			this.b = b;
-			this.c = c;
-		}
-	}
-	public static void main(String [] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		v = Integer.parseInt(st.nextToken());
-		e = Integer.parseInt(st.nextToken());
-		double result = 0;
-		parent = new int [v+1];
-		PriorityQueue<pos> q = new PriorityQueue<>(new Comparator<pos>() {
-			@Override
-			public int compare(pos o1, pos o2) {
-				return o1.c-o2.c;
-			}
-		});
-		for (int i=0; i<e; i++) {
-			st = new StringTokenizer(br.readLine());
-			int a = Integer.parseInt(st.nextToken()), b = Integer.parseInt(st.nextToken()), c = Integer.parseInt(st.nextToken());
-			q.add(new pos(a,b,c));
-		}
-		for (int i=1; i<v+1; i++) {
-			parent[i] = i;
-		}
-		while (!q.isEmpty()) {
-			pos cur = q.poll();
-			int a = cur.a;
-			int b = cur.b;
-			int c = cur.c;
-			if (find_parent(a) != find_parent(b)) {
-				union_parent(a,b);
-				result += c;
-			}
-		}
-		System.out.println((int) result);
-	}
+        p = new int[n];
+        for (int i=0; i<n; i++){p[i] = i;}
+        for (int i=0; i<m; i++) {
+            int [] tem = arr.get(i);
+            int a = find_parent(tem[0]);
+            int b = find_parent(tem[1]);
+            if (a != b) {
+                union(tem[0],tem[1]);
+                ans += tem[2];
+            }
+        }
+        System.out.println(ans);
+    }
+    static int find_parent(int x){
+        if (x != p[x]) return find_parent(p[x]);
+        return p[x];
+    }
+    static void union(int a, int b){
+        a = find_parent(a);
+        b = find_parent(b);
+        if (a<b) p[a] = b;
+        else p[b] = a;
+    }
 }
