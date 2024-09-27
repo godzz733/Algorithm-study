@@ -41,8 +41,9 @@ def solve(v):
     return 2600
 
 for i in combinations(v,m):
-    if ans == 0:
+    if ans <= 1:
         break
     ans = min(ans,solve(list(i)))
 
 print(ans if ans != 2600 else -1)
+
