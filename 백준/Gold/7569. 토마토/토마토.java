@@ -1,85 +1,199 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-public class Main{
+public class Main {
+    static FastReader in = new FastReader();
+    static FastWriter out = new FastWriter();
+    private static final int [] dx = {1,-1,0,0,0,0};
+    private static final int [] dy = {0,0,1,-1,0,0};
+    private static final int [] dz = {0,0,0,0,1,-1};
+    public static void main(String[] args) throws IOException {
+        solve();
+        out.flush();
+        out.close();
+    }
+    static void solve() throws IOException {
+        int m = in.nextInt(), n = in.nextInt(), k = in.nextInt();
+        int[][][] arr = new int[k][n][m];
+        for (int i = 0; i < k; i++) {
+            arr[i] = in.read2DIntArray(n,m);
+        }
+        int ans = 0;
 
-	static int n,m,h;
-	static int[][][] arr;
-	static int[] dx = {1,-1,0,0,0,0};
-	static int[] dy = {0,0,1,-1,0,0};
-	static int[] dz = {0,0,0,0,1,-1};
-	static boolean [][][] visited;
-	static class pos{
-		int x,y,z,cnt;
-		public pos(int x, int y, int z , int cnt) {
-			this.x = x;
-			this.y = y;
-			this.z = z;
-			this.cnt =cnt;
-		}
-	}	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		n = sc.nextInt();
-		m = sc.nextInt();
-		h = sc.nextInt();
-		arr = new int[n][m][h];
-		visited = new boolean[n][m][h];
-		Queue<pos> q = new LinkedList<>();
-		int result = 0, check=0;
-		for (int k=0; k<h; k++) {
-			for (int i=0; i<m; i++) {
-				for (int j=0; j<n; j++) {
-					arr[j][i][k] = sc.nextInt();
-					if (arr[j][i][k]==1) {
-						q.add(new pos(j,i,k,0));
-						visited[j][i][k] = true;
-					}
-				}
-			}
-		}
+        Queue<int[]> q = new ArrayDeque<>();
+        boolean[][][] v = new boolean[k][n][m];
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                for (int l = 0; l < m; l++) {
+                    if (arr[i][j][l] == 1) {
+                        q.add(new int[]{i,j,l,0});
+                        v[i][j][l] = true;
+                    }
+                }
+            }
+        }
 
-		while (!q.isEmpty()) {
-			pos cur = q.poll();
-			int x = cur.x;
-			int y = cur.y;
-			int z = cur.z;
-			int cnt = cur.cnt;
-			if (cnt>result) {
-				result = cnt;
-			}
-			for (int i=0; i<6; i++) {
-				int nx = x + dx[i];
-				int ny = y + dy[i];
-				int nz = z + dz[i];
-				if (nx<0 || nx>=n || ny<0 || ny>=m || nz<0 || nz>=h) {
-					continue;
-				}
-				if (arr[nx][ny][nz]==0 && !visited[nx][ny][nz]) {
-					arr[nx][ny][nz] = 1;
-					q.add(new pos(nx,ny,nz,cnt+1));
-					visited[nx][ny][nz]=true;
-				}
-				
-			}
-		}
-		for (int k=0; k<h; k++) {
-			for (int i=0; i<m; i++) {
-				for (int j=0; j<n; j++) {
-					if (arr[j][i][k]==0) {
-						check++;
-						break;
-					}
-				}
-			}
-		}
-		if (check>0) {
-			System.out.println(-1);
-		} else {
-			System.out.println(result);
-		}
-			
-		}
-		
-	}
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            int z = cur[0], x = cur[1], y = cur[2], d = cur[3];
+            ans = Math.max(ans, d);
+            for (int i = 0; i < 6; i++) {
+                int nx = x + dx[i], ny = y + dy[i], nz = z + dz[i];
+                if (nx >=0 && nx < n && ny >= 0 && ny < m && nz >= 0 && nz < k && !v[nz][nx][ny] && arr[nz][nx][ny] == 0) {
+                    v[nz][nx][ny] = true;
+                    q.add(new int[]{nz,nx,ny,d+1});
+                    arr[nz][nx][ny] = 1;
+                }
+            }
+        }
+
+        if (check(n,m,k,arr)) out.print(ans);
+        else out.println(-1);
+    }
+    static boolean check(int n, int m, int k, int[][][] arr) {
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < n; j++) {
+                for (int l = 0; l < m; l++) {
+                    if (arr[i][j][l] == 0) return false;
+                }
+            }
+        }
+        return true;
+    }
+    // ======================== 최강 속도 FastReader (Byte Level) ========================
+    static class FastReader {
+        private static final int BUFFER_SIZE = 1 << 16;
+        private final DataInputStream din;
+        private final byte[] buffer;
+        private int bufferPointer, bytesRead;
+
+        public FastReader() {
+            din = new DataInputStream(System.in);
+            buffer = new byte[BUFFER_SIZE];
+            bufferPointer = bytesRead = 0;
+        }
+
+        public String next() throws IOException {
+            StringBuilder sb = new StringBuilder();
+            byte c = read();
+            while (c <= ' ') c = read();
+            while (c > ' ') {
+                sb.append((char) c);
+                c = read();
+            }
+            return sb.toString();
+        }
+
+        public int nextInt() throws IOException {
+            int ret = 0;
+            byte c = read();
+            while (c <= ' ') c = read();
+            boolean neg = (c == '-');
+            if (neg) c = read();
+            do {
+                ret = ret * 10 + c - '0';
+            } while ((c = read()) >= '0' && c <= '9');
+            return neg ? -ret : ret;
+        }
+
+        public long nextLong() throws IOException {
+            long ret = 0;
+            byte c = read();
+            while (c <= ' ') c = read();
+            boolean neg = (c == '-');
+            if (neg) c = read();
+            do {
+                ret = ret * 10 + c - '0';
+            } while ((c = read()) >= '0' && c <= '9');
+            return neg ? -ret : ret;
+        }
+
+        public double nextDouble() throws IOException {
+            double ret = 0, div = 1;
+            byte c = read();
+            while (c <= ' ') c = read();
+            boolean neg = (c == '-');
+            if (neg) c = read();
+            do {
+                ret = ret * 10 + c - '0';
+            } while ((c = read()) >= '0' && c <= '9');
+            if (c == '.') {
+                while ((c = read()) >= '0' && c <= '9')
+                    ret += (c - '0') / (div *= 10);
+            }
+            return neg ? -ret : ret;
+        }
+
+        public String nextLine() throws IOException {
+            StringBuilder sb = new StringBuilder();
+            byte c = read();
+            while (c == '\n' || c == '\r') c = read();
+            while (c != '\n' && c != '\r' && c != -1) {
+                sb.append((char) c);
+                c = read();
+            }
+            return sb.toString();
+        }
+
+        // --- 편의 메서드들 ---
+        public int[] readIntArray(int n) throws IOException {
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) arr[i] = nextInt();
+            return arr;
+        }
+
+        public long[] readLongArray(int n) throws IOException {
+            long[] arr = new long[n];
+            for (int i = 0; i < n; i++) arr[i] = nextLong();
+            return arr;
+        }
+
+        public int[][] read2DIntArray(int n, int m) throws IOException {
+            int[][] arr = new int[n][m];
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < m; j++) arr[i][j] = nextInt();
+            return arr;
+        }
+
+        public char[] readCharArray() throws IOException {
+            return next().toCharArray();
+        }
+
+        private void fillBuffer() throws IOException {
+            bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
+            if (bytesRead == -1) buffer[0] = -1;
+        }
+
+        private byte read() throws IOException {
+            if (bufferPointer == bytesRead) fillBuffer();
+            return buffer[bufferPointer++];
+        }
+    }
+
+    // ======================== 최적화된 FastWriter ========================
+    static class FastWriter {
+        private final BufferedWriter bw;
+
+        public FastWriter() {
+            this.bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+
+        public void print(Object o) throws IOException { bw.write(String.valueOf(o)); }
+        public void println(Object o) throws IOException { bw.write(String.valueOf(o)); bw.write("\n"); }
+
+        // Primitive 최적화 (Boxing 방지)
+        public void print(int i) throws IOException { bw.write(Integer.toString(i)); }
+        public void println(int i) throws IOException { bw.write(Integer.toString(i)); bw.write("\n"); }
+
+        public void printArray(int[] arr) throws IOException {
+            for (int i = 0; i < arr.length; i++) {
+                print(arr[i]);
+                if (i != arr.length - 1) bw.write(" ");
+            }
+            bw.write("\n");
+        }
+
+        public void flush() throws IOException { bw.flush(); }
+        public void close() throws IOException { bw.close(); }
+    }
+}
